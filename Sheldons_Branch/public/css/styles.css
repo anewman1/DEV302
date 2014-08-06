@@ -1,0 +1,100 @@
+/* Scss Document */
+/* Scss Document */
+html, body, input, textarea, select {
+  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  -webkit-appearance: none;
+  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-border-radius: 0px; }
+
+p {
+  color: #5A5A5A; }
+
+#content {
+  margin: 2%;
+  margin-top: 2%;
+  background-color: #fff;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  -moz-webkit-box-shadow: 0px 0px 7px 0px #3C3C3C;
+  -webkit-box-shadow: 0px 0px 7px 0px #3C3C3C;
+  box-shadow: 0px 0px 7px 0px #3C3C3C; }
+  #content h1 {
+    margin: 2%;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-top: 4%; }
+
+/* Products Page */
+.products {
+  width: 96%;
+  margin: 2%;
+  margin-bottom: 0;
+  margin-top: 0; }
+  .products a {
+    border: none;
+    float: left;
+    margin-top: 2%;
+    margin-bottom: 0;
+    margin-left: 2%;
+    width: 23.5%;
+    padding: 2%;
+    padding-bottom: 0;
+    text-align: center; }
+  .products a:hover .btn-success, .products .btn-success:focus {
+    background-color: #419641;
+    background-position: 0px -15px; }
+  .products a:first-child {
+    margin-left: 0; }
+  .products a:nth-child(4n+1) {
+    margin-left: 0; }
+  .products .product {
+    /*float: left;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    width: 23.5%;
+    padding: 2%;
+    @include border();*/ }
+  .products .img-holder {
+    height: 200px;
+    overflow: hidden; }
+    .products .img-holder img {
+      width: 100%; }
+  .products h3 {
+    margin: 0;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    font-size: 15px;
+    height: 30px; }
+  .products p {
+    margin: 0;
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    max-height: 20px;
+    -o-text-overflow: ellipsis;
+    /* Opera */
+    text-overflow: ellipsis;
+    /* IE, Safari (WebKit) */
+    overflow: hidden;
+    /* don't show excess chars */
+    white-space: nowrap; }
+  .products button {
+    width: 100%;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0; }
+
+.products:last-child {
+  margin-bottom: 2%; }

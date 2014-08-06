@@ -1,0 +1,147 @@
+/* Scss Document */
+
+$font: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$primaryColour: #CCC;
+$secondaryColour: #808080;
+$links: #00FFFB;
+$corners: 20px;
+
+@import 'reset';
+
+@mixin centerAlign() {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@mixin roundCorners($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin cornersReset() {
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+      -ms-border-radius: 0;
+          border-radius: 0;
+}
+
+@mixin border() {
+	border-width: 1px;
+	border-color: #CCCCCC;
+	border-style: solid;
+}
+
+@mixin shadow() {
+	-moz-webkit-box-shadow: 0px 0px 7px 0px #3C3C3C;
+	-webkit-box-shadow: 0px 0px 7px 0px #3C3C3C;
+	box-shadow: 0px 0px 7px 0px #3C3C3C;
+}
+
+
+
+#content {
+	margin: 2%;
+	margin-top: 2%;
+	background-color: #fff;
+	@include roundCorners($corners);
+	@include centerAlign();
+	@include shadow();
+	
+	h1 {
+		margin: 2%;
+		margin-bottom: 0;
+		margin-right: 0;
+		margin-top: 4%;
+	}
+}
+
+
+/* Products Page */
+
+.products {
+	width: 96%;
+	margin: 2%;
+	margin-bottom: 0;
+	margin-top: 0;
+	
+	
+
+	a {
+		border: none;
+		float: left;
+		margin-top: 2%;
+		margin-bottom: 0;
+		margin-left: 2%;
+		width: 23.5%;
+		padding: 2%;
+		padding-bottom: 0;
+		text-align: center;
+		
+	}
+	
+	a:hover .btn-success, .btn-success:focus {
+		background-color: #419641;
+		background-position: 0px -15px;
+	}
+	
+	a:first-child {
+		margin-left: 0;
+	}
+	
+	a:nth-child(4n+1) {
+		margin-left: 0;
+	}
+		
+	
+	.product {
+		/*float: left;
+		margin-top: 2%;
+		margin-bottom: 2%;
+		margin-left: 2%;
+		width: 23.5%;
+		padding: 2%;
+		@include border();*/
+	}
+	
+	
+	
+	.img-holder {
+		height: 200px;
+		overflow: hidden;
+	
+		img {
+			width: 100%;
+		}
+	}
+	
+	h3 {
+		margin: 0;
+		margin-left: 2%;
+		margin-bottom: 2%;
+		font-size: 15px;
+		height: 30px;
+	}
+	
+	p {
+		margin: 0;
+		margin-left: 2%;
+		margin-top: 2%;
+		margin-bottom: 2%;
+		max-height: 20px;
+		-o-text-overflow: ellipsis;   /* Opera */
+		text-overflow:    ellipsis;   /* IE, Safari (WebKit) */
+		overflow: hidden;              /* don't show excess chars */
+		white-space: nowrap;
+	}
+	
+	button {
+		width: 100%;
+		@include cornersReset();
+	}
+}
+
+.products:last-child {
+	margin-bottom: 2%;
+}
