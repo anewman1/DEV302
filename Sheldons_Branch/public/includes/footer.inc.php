@@ -1,7 +1,7 @@
         <hr>
 
         <footer>
-            <p>&copy; The Fighting Mongooses</p>
+            <p>&copy; DevStore</p>
         </footer> 
     </div> <!-- /container -->  
     <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>

@@ -34,9 +34,9 @@ $corners: 20px;
 }
 
 @mixin shadow() {
-	-moz-webkit-box-shadow: 0px 0px 7px 0px #3C3C3C;
-	-webkit-box-shadow: 0px 0px 7px 0px #3C3C3C;
-	box-shadow: 0px 0px 7px 0px #3C3C3C;
+	-moz-webkit-box-shadow: 0px 0px 7px 0px rgba(60,60,60,0.50);
+	-webkit-box-shadow: 0px 0px 7px 0px rgba(60,60,60,0.50);
+	box-shadow: 0px 0px 7px 0px rgba(60,60,60,0.50);
 }
 
 
@@ -45,8 +45,7 @@ $corners: 20px;
 }
 
 #content {
-	margin: 2%;
-	margin-top: 2%;
+	margin: 4%;
 	background-color: #fff;
 	@include roundCorners($corners);
 	@include centerAlign();
@@ -71,6 +70,10 @@ $corners: 20px;
 			width: 50%;
 		}
 	}
+}
+
+footer {
+	text-align: center;
 }
 
 

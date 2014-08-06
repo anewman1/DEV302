@@ -19,8 +19,7 @@ p {
   background-color: red; }
 
 #content {
-  margin: 2%;
-  margin-top: 2%;
+  margin: 4%;
   background-color: #fff;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -28,9 +27,9 @@ p {
   border-radius: 20px;
   margin-left: auto;
   margin-right: auto;
-  -moz-webkit-box-shadow: 0px 0px 7px 0px #3C3C3C;
-  -webkit-box-shadow: 0px 0px 7px 0px #3C3C3C;
-  box-shadow: 0px 0px 7px 0px #3C3C3C; }
+  -moz-webkit-box-shadow: 0px 0px 7px 0px rgba(60, 60, 60, 0.5);
+  -webkit-box-shadow: 0px 0px 7px 0px rgba(60, 60, 60, 0.5);
+  box-shadow: 0px 0px 7px 0px rgba(60, 60, 60, 0.5); }
   #content h1 {
     margin: 2%;
     margin-bottom: 0;
@@ -48,6 +47,9 @@ p {
     border-bottom-right-radius: 0; }
     #content #sort form {
       width: 50%; }
+
+footer {
+  text-align: center; }
 
 /* Products Page */
 .products {
