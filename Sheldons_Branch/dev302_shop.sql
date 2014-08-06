@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.1
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 27, 2014 at 05:59 AM
--- Server version: 5.5.32
--- PHP Version: 5.4.19
+-- Host: localhost:3306
+-- Generation Time: Aug 06, 2014 at 06:05 AM
+-- Server version: 5.5.34
+-- PHP Version: 5.5.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `dev302_shop`
 --
-CREATE DATABASE IF NOT EXISTS `dev302_shop` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `dev302_shop`;
 
 -- --------------------------------------------------------
 
@@ -28,7 +26,7 @@ USE `dev302_shop`;
 -- Table structure for table `address`
 --
 
-CREATE TABLE IF NOT EXISTS `address` (
+CREATE TABLE `address` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `unitNum` tinyint(4) NOT NULL,
@@ -50,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `address` (
 -- Table structure for table `category`
 --
 
-CREATE TABLE IF NOT EXISTS `category` (
+CREATE TABLE `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `catName` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
@@ -90,7 +88,7 @@ INSERT INTO `category` (`id`, `catName`) VALUES
 -- Table structure for table `comment`
 --
 
-CREATE TABLE IF NOT EXISTS `comment` (
+CREATE TABLE `comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -104,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
 -- Table structure for table `content`
 --
 
-CREATE TABLE IF NOT EXISTS `content` (
+CREATE TABLE `content` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT,
   `rating` varchar(6) NOT NULL COMMENT 'eg. MA15+',
   PRIMARY KEY (`id`)
@@ -130,10 +128,17 @@ INSERT INTO `content` (`id`, `rating`) VALUES
 -- Table structure for table `image`
 --
 
-CREATE TABLE IF NOT EXISTS `image` (
+CREATE TABLE `image` (
   `product_id` int(11) NOT NULL,
   `image` varchar(50) NOT NULL COMMENT 'url to img'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `image`
+--
+
+INSERT INTO `image` (`product_id`, `image`) VALUES
+(1, 'img/fullmetal_alch.png');
 
 -- --------------------------------------------------------
 
@@ -141,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `image` (
 -- Table structure for table `order`
 --
 
-CREATE TABLE IF NOT EXISTS `order` (
+CREATE TABLE `order` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `address_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -156,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `order` (
 -- Table structure for table `price`
 --
 
-CREATE TABLE IF NOT EXISTS `price` (
+CREATE TABLE `price` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) NOT NULL,
   `price` decimal(10,0) NOT NULL,
@@ -170,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `price` (
 -- Table structure for table `product`
 --
 
-CREATE TABLE IF NOT EXISTS `product` (
+CREATE TABLE `product` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `qty` smallint(6) NOT NULL,
@@ -198,7 +203,7 @@ INSERT INTO `product` (`id`, `name`, `qty`, `description`, `content_id`) VALUES
 -- Table structure for table `product_category`
 --
 
-CREATE TABLE IF NOT EXISTS `product_category` (
+CREATE TABLE `product_category` (
   `product_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -224,7 +229,7 @@ INSERT INTO `product_category` (`product_id`, `category_id`) VALUES
 -- Table structure for table `product_order`
 --
 
-CREATE TABLE IF NOT EXISTS `product_order` (
+CREATE TABLE `product_order` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) NOT NULL,
   `qty` smallint(6) NOT NULL,
@@ -237,7 +242,7 @@ CREATE TABLE IF NOT EXISTS `product_order` (
 -- Table structure for table `rating`
 --
 
-CREATE TABLE IF NOT EXISTS `rating` (
+CREATE TABLE `rating` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `stars` tinyint(6) NOT NULL,
@@ -250,7 +255,7 @@ CREATE TABLE IF NOT EXISTS `rating` (
 -- Table structure for table `shipment`
 --
 
-CREATE TABLE IF NOT EXISTS `shipment` (
+CREATE TABLE `shipment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `shipCo` varchar(50) NOT NULL,
   `date` datetime NOT NULL,
@@ -264,7 +269,7 @@ CREATE TABLE IF NOT EXISTS `shipment` (
 -- Table structure for table `user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uname` varchar(25) NOT NULL,
   `email` varchar(255) NOT NULL COMMENT 'max email length is 245 characters',
