@@ -41,7 +41,7 @@
                     <li><a href="products.php">Products</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="contact.php">Contact</a></li>
-                    <li><a href="cart.php">Cart</a></li>
+                    <li><a href="cart.php">Cart <span class="badge"><?= $cart ?>0</span></a></li>
                 </ul>
                 
                 <?php

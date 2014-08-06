@@ -15,6 +15,9 @@ html, body, input, textarea, select {
 p {
   color: #5A5A5A; }
 
+.badge {
+  background-color: red; }
+
 #content {
   margin: 2%;
   margin-top: 2%;
@@ -33,13 +36,26 @@ p {
     margin-bottom: 0;
     margin-right: 0;
     margin-top: 4%; }
+  #content #sort {
+    padding: 2%;
+    width: 100%;
+    background-color: #EEEEEE;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    border-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; }
+    #content #sort form {
+      width: 50%; }
 
 /* Products Page */
 .products {
   width: 96%;
   margin: 2%;
   margin-bottom: 0;
-  margin-top: 0; }
+  margin-top: 0;
+  padding-bottom: 4%; }
   .products a {
     border: none;
     float: left;
@@ -98,3 +114,18 @@ p {
 
 .products:last-child {
   margin-bottom: 2%; }
+
+.clearfix:before,
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  overflow: hidden; }
+
+.clearfix:after {
+  clear: both; }
+
+.clearfix {
+  zoom: 1; }
+
+/* IE < 8 */
