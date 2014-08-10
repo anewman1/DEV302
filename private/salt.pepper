@@ -1,0 +1,4 @@
+<?php
+
+$salt = diduguessmypassword;
+$salt = $salt;
