@@ -25,7 +25,7 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -46,7 +46,7 @@
                     // DISPLAYS LOG IN BAR IF NOT LOGGED IN
                     if(!$loggedIn){ 
                 ?>
-                <form class="navbar-form navbar-right" name="login" method="POST" action="login.php">
+                <form class="navbar-form navbar-right" name="login" method="POST" action="processes/login.php">
                     <div class="form-group">
                     <input type="text" placeholder="Username" class="form-control" name="user">
                     </div>
@@ -64,7 +64,17 @@
                     // DISPLAYS USERNAME GREETING IF LOGGED IN
                     }elseif($loggedIn == true){ 
                 ?>
-                <a class="navbar-right navbar-brand" href="logout.php">Welcome, <?=$USER?></a>
+                
+                <form class="navbar-form navbar-right" name="logout" method="POST" action="#">
+                    <div class="form-group">
+                    <a href="processes/logout.php" class="navbar-right"><button type="button" class="btn btn-warning">Log-Out</button></a>
+                    </div>
+                </form>
+                <!-- USER APPEARS FIRST ON SCREEN AS IT IS PUSHED RIGHT AFTER THE LOGOUT BUTTON -->
+                <ul class="nav navbar-nav navbar-right" >
+                    <li><a class="navbar-brand navbar-right" href="#">Welcome, <?=$USER?></a></li>
+                </ul>
+
                 <?php
                     }
                 ?>

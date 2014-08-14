@@ -21,7 +21,7 @@
         die();
     }
     
-    $encrypt = $pass.$salt;
+    $encrypt = $pass.$salt.'0000-00-00 00:00:00';
     $hashed = hash('sha512', $encrypt);
     
     // VALIDATE THE DATE INPUT
@@ -52,7 +52,7 @@
         
     // IF USER AND EMAIL ARE OK, THEN CREATE NEW USER IN THE DATABASE
     }else{
-        $query = "INSERT INTO user SET id='NULL', uname='$user', email='$email', fname='$fname', lname='$lname', pword='$hashed', dob='$dob', phone='$phone', date=CURRENT_TIMESTAMP, access='user', lastVisit='NULL';";
+        $query = "INSERT INTO user SET id='NULL', uname='$user', email='$email', fname='$fname', lname='$lname', pword='$hashed', dob='$dob', phone='$phone', date=CURRENT_TIMESTAMP, access='user', lastVisit='0000-00-00 00:00:00';";
         $pdo->query($query); 
         redirect('../index.php');
     } 
