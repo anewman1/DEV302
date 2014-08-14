@@ -6,43 +6,43 @@ require 'includes/header.inc.php';
     function validateForm(){
         var form = document.forms['signup'];
         
-        var fname = form['fname'].value;
-        var lname = form['lname'].value;
-        var phone = form['phone'].value;
-        var dob = form['dob'].value;
-        var email = form['email'].value;
-        var user = form['user'].value;
+//        var fname = form['fname'].value;
+//        var lname = form['lname'].value;
+//        var phone = form['phone'].value;
+//        var dob = form['dob'].value;
+//        var email = form['email'].value;
+//        var user = form['user'].value;
         var pass = form['pass'].value;
         var conf = form['confirm'].value;
         
-        //Set password minimum length
+        // SET PASSWORD MINIMUM LENGTH
         if(pass.length < 6){
             alert('Password must contain a minimum of 6 characters');
             return false;
         }
         
-        //Ensures at least one number is present
+        // ENSURES AT LEAST ONE NUMBER IS PRESENT
         var regEx = /[0-9]/;
         if(!regEx.test(pass)){
             alert('Password must contain at least one number');
             return false;
         }
         
-        //Ensures at least one UPPERCASE letter is present
+        // ENSURES AT LEAST ONE UPPERCASE LETTER IS PRESENT
         var regEx = /[A-Z]/;
         if(!regEx.test(pass)){
             alert('Password must contain at least one UPPERCASE letter');
             return false;
         }
         
-        //Ensures at least onelowercase letter is present
+        // ENSURES AT LEAST ONE LOWERCASE LETTER IS PRESENT
         var regEx = /[a-z]/;
         if(!regEx.test(pass)){
             alert('Password must contain at least one lowercase letter');
             return false;
         }
         
-        //Ensure the user knows their password
+        // ENSURE THE USER KNOWS THEIR PASSWORD
         if(pass !== conf){
             alert('Passwords do not match');
             return false;
