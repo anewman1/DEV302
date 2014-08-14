@@ -52,7 +52,7 @@
         
     // IF USER AND EMAIL ARE OK, THEN CREATE NEW USER IN THE DATABASE
     }else{
-        $query = "INSERT INTO user SET id='NULL', uname='$user', email='$email', fname='$fname', lname='$lname', pword='$hashed', dob='$dob', phone='$phone', date=CURRENT_TIMESTAMP, access='NULL';";
+        $query = "INSERT INTO user SET id='NULL', uname='$user', email='$email', fname='$fname', lname='$lname', pword='$hashed', dob='$dob', phone='$phone', date=CURRENT_TIMESTAMP, access='user', lastVisit='NULL';";
         $pdo->query($query); 
         redirect('../index.php');
     } 

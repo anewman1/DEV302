@@ -2,7 +2,7 @@
     require 'includes/header.inc.php';
 	
 	//import the database connection script
-	require("../private/db.inc.php");
+	require("../private/db.connect.php");
 	
 	$sort = (isset($_GET['sort']) ? ($_GET['sort']) : "prod.id DESC");
 	
