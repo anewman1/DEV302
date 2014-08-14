@@ -4,13 +4,29 @@
 	//import the database connection script
 	require("../private/db.inc.php");
 	
-	$sort = (isset($_GET['sort']) ? ($_GET['sort']) : "prod.id DESC");
+	$sortType = (isset($_GET['sortBy']) ? ($_GET['sortBy']) : "release-date");
+	$sort = "prod.id";
 	
 	function currentSort($option) {
-		global $sort;
-		if ($option == $sort) {
+		global $sortType;
+		if ($option == $sortType) {
 			echo("selected");
 		}
+	}
+	
+	switch ($sortType) {
+		case "release-date":
+			$sort = "prod.id DESC";
+			break;
+		case "name":
+			$sort = "prod.name";
+			break;
+		/*case "price":
+			$sort = "price.price";
+			break;
+		case "rating":
+			$sort = "rate.stars";
+			break;*/
 	}
 	
 	$query = "
@@ -35,20 +51,21 @@
                         <span class="glyphicon glyphicon-refresh"></span>
                     </button>
                 </span>
-                <select name="sort" class="form-control" >
-            	  <option value="prod.id DESC" <?php currentSort("prod.id DESC"); ?>>New Releases</option>
-                  <option value="con.id" <?php currentSort("con.id"); ?>>Rating</option>
-            	  <option value="prod.name" <?php currentSort("prod.name"); ?>>Name</option>
-            	  <option value="prod.price" <?php currentSort("prod.price"); ?>>Price</option>
-            	  <option value="rate.stars" <?php currentSort("rate.stars"); ?>>Top Rated</option>
+                <select name="sortBy" class="form-control">
+            	  <option value="release-date" <?php currentSort("release-date"); ?>>New Releases</option>
+            	  <option value="name" <?php currentSort("name"); ?>>Name</option>
+            	  <option value="price" <?php currentSort("price"); ?>>Price</option>
+            	  <option value="rating" <?php currentSort("rating"); ?>>Top Rated</option>
             	</select>
 			</form>
         </div>
     	<div class="products clearfix">
 <?php
 	while($row = $sth->fetch(PDO::FETCH_ASSOC)) {
+		$alias = preg_replace('/\s+/', '-', $row['name']);
+		$alias = preg_replace('/[^A-Za-z0-9:\-]/', '', $alias);
 ?>
-            <a href="product.php?product=<?= $row['id'] ?>">
+            <a href="products/<?= $alias ?>">
                 <div class="product">
                     <h3><?= $row['name'] ?></h3>
                     <div class="img-holder">

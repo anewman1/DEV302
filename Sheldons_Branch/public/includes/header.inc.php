@@ -1,8 +1,13 @@
 <?php
     // START SESSION and set VARIABLES
     session_start();
+	
     $loggedIn = (isset($_SESSION['login'])!= "")? $_SESSION['login'] : null;
     $USER = (isset($_SESSION['user'])!= "")? $_SESSION['user'] : null;
+	
+	if(isset($_SESSION['alias'])) {
+		unset($_SESSION['alias']);
+	}
 ?>
 <!DOCTYPE html>
 <html>
