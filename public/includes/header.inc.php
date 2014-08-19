@@ -3,6 +3,7 @@
     session_start();
     $loggedIn = (isset($_SESSION['login'])!= "")? $_SESSION['login'] : null;
     $USER = (isset($_SESSION['user'])!= "")? $_SESSION['user'] : null;
+    $access = (isset($_SESSION['access'])!="")? $_SESSION['access'] : null;
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,8 +20,7 @@
         body{
             padding-top: 50px;
             padding-bottom: 20px;
-            /*background-image: url("img/dark_mosaic.png"); //www.subtlepatterns.com*/
-            background-image: url("img/crossword.png"); //www.subtlepatterns.com
+
         }
     </style>
 </head>
@@ -65,14 +65,23 @@
                     }elseif($loggedIn == true){ 
                 ?>
                 
-                <form class="navbar-form navbar-right" name="logout" method="POST" action="#">
-                    <div class="form-group">
-                    <a href="processes/logout.php" class="navbar-right"><button type="button" class="btn btn-warning">Log-Out</button></a>
-                    </div>
-                </form>
-                <!-- USER APPEARS FIRST ON SCREEN AS IT IS PUSHED RIGHT AFTER THE LOGOUT BUTTON -->
-                <ul class="nav navbar-nav navbar-right" >
-                    <li><a class="navbar-brand navbar-right" href="#">Welcome, <?=$USER?></a></li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown"><?=$USER?> <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <?php
+                            if($access == 'admin'){
+                            ?>
+                            <li><a href="adminTools.php"><span class="glyphicon glyphicon-cog"></span> Admin Toolbox</a></li>
+                            <?php
+                            }
+                            ?>
+                            <li><a href="#usersettings"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+                            <li class="divider"></li>
+                            <li><a href="processes/logout.php"><span class="glyphicon glyphicon-off"></span> Log-Out</a></li>
+                        </ul>
+                    </li>
+                    
                 </ul>
 
                 <?php

@@ -18,12 +18,13 @@
     }
         
     // SELECT USERNAME AND EMAIL FROM THE DATABASE
-    $sth = $pdo->query("SELECT uname, pword, lastVisit FROM user WHERE uname='$user';");
+    $sth = $pdo->query("SELECT uname, pword, access, lastVisit FROM user WHERE uname='$user';");
     
     $row = $sth->fetch(PDO::FETCH_ASSOC);
     $un = $row['uname'];
     $up = $row['pword'];
     $lv = $row['lastVisit'];
+    $access = $row['access'];
     
     $encrypt = $pass.$salt.$lv;
     $hashed = hash('sha512', $encrypt);
@@ -32,6 +33,7 @@
     if(($un == $user) && ($up == $hashed)){
         $_SESSION['login'] = true;
         $_SESSION['user'] = $user;
+        $_SESSION['access'] = $access;
         
         $date = new DateTime();
         $dateStamp = $date->format('Y-m-d H:i:s');

@@ -5,11 +5,16 @@
     $fname = (isset($_POST['fname'])!= "")? $_POST['fname'] : null;
     $lname = (isset($_POST['lname'])!= "")? $_POST['lname'] : null;
     $phone = (isset($_POST['phone'])!= "")? $_POST['phone'] : null;
-    $dob = (isset($_POST['dob'])!= "")? $_POST['dob'] : null;
     $email = (isset($_POST['email'])!= "")? $_POST['email'] : null;
     $user = (isset($_POST['user'])!= "")? $_POST['user'] : null;
     $pass = (isset($_POST['pass'])!= "")? $_POST['pass'] : null;
     $confirm = (isset($_POST['confirm'])!= "")? $_POST['confirm'] : null;
+    
+    $day = (isset($_POST['day'])!= "")? $_POST['day'] : null;
+    $month = (isset($_POST['month'])!= "")? $_POST['month'] : null;
+    $year = (isset($_POST['year'])!= "")? $_POST['year'] : null;
+    
+    
     
     require '../../private/db.connect.php';
     require '../../private/salt.pepper';
@@ -25,11 +30,8 @@
     $hashed = hash('sha512', $encrypt);
     
     // VALIDATE THE DATE INPUT
-    $datecheck = explode('-', $dob);
-    if(checkdate($datecheck[1], $datecheck[2], $datecheck[0])){
-        echo('Date is ok');
-    }else{
-        echo('Date is wrong');
+    if(checkdate($month, $day, $year)){
+        $dob = "$year-$month-$day";
     }
     
 
@@ -44,7 +46,6 @@
     // CHECK IF USERNAME IS ALREADY TAKEN
     if($un == $user){
         echo('This username is already taken, please select another.');
-        echo($dob);
         
     // CHECK IF EMAIL IS ALREADY REGISTERED
     }else if($ue == $email){
