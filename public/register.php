@@ -79,7 +79,7 @@ require 'includes/header.inc.php';
                 document.getElementById('taken').innerHTML = xmlhttp.responseText;
             }
         };
-        xmlhttp.open("GET", "processes/getuser.php?q="+str, false);
+        xmlhttp.open("GET", "processes/checkUser.php?q="+str, false);
         xmlhttp.send();
     }
 </script>
