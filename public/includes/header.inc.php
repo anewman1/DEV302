@@ -16,11 +16,17 @@
     <title>DEV_Store</title>
     
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <style>
         body{
             padding-top: 50px;
             padding-bottom: 20px;
-
+        }
+        table,th,td{
+            border: 1px solid black;
+        }
+        th,td{
+            padding: 0.25em;
         }
     </style>
 </head>

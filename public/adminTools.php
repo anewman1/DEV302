@@ -4,14 +4,19 @@
 
 <script type="text/javascript">
     
-    function submission(){
+    function permissions(){
         
         var form = document.forms['permission'];
         var user = form['usearch'].value;
         
-        checkUser(user);
+        // Implemented REGEX here as leaving it blank or entering spaces would return all users.
+        var regEx = /^[a-zA-Z0-9]+$/;
+        if(!regEx.test(user)){
+            alert('Please enter a valid search');
+        }else{
+            checkUser(user);
+        }
         return false;
-        
     }
     
     function checkUser(str){
@@ -31,7 +36,16 @@
         xmlhttp.send();
     }
     
-    
+    function uID(id, name, access){
+        var uID = id;
+        var uname = name;
+        var aLvl = access;
+        var newLVL = $("#"+uID+" option:selected").val();
+        var txt = uname+" is currently a "+aLvl+".\nYou are about to set them as a "+newLVL+". \nEnter your password to confirm";
+        
+        prompt(txt, "password");
+    }
+
 </script>
 
 
@@ -42,17 +56,15 @@
     <br>
     <br>
     Change User Permissions.<br>
-    - look up user and alter access level.<br>
-    - admin - mod - user.
     <br>
     
-    <form name="permission" action="#" onsubmit="return submission()">
+    <form name="permission" action="#" onsubmit="return permissions()">
         <input type="text" name="usearch" />
         <input type="submit" name="submit" value="Search"/>
     </form>
-    
-    <ul id="people"></ul>
-    
+    <br>
+    <div id="people"></div>
+
     
     <br>
     Delete User.<br>
