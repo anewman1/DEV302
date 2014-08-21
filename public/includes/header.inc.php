@@ -4,6 +4,17 @@
     $loggedIn = (isset($_SESSION['login'])!= "")? $_SESSION['login'] : null;
     $USER = (isset($_SESSION['user'])!= "")? $_SESSION['user'] : null;
     $access = (isset($_SESSION['access'])!="")? $_SESSION['access'] : null;
+    
+    
+    // Prevents access to ADMIN TOOLS if not logged in as admin.
+    $location = $_SERVER['SCRIPT_NAME'];
+    $url = explode('/', $location);
+    $num = count($url);
+    $adminTool = $url[$num-1];
+    if($access !== 'admin' && $adminTool == 'adminTools.php'){
+        header("Location: index.php");
+    }
+    
 ?>
 <!DOCTYPE html>
 <html>
