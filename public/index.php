@@ -2,7 +2,7 @@
     require 'includes/header.inc.php';
 ?>
 
-    Content
+    Content    
     
 <?php
     require 'includes/footer.inc.php';
