@@ -52,3 +52,15 @@
             echo('This username is already taken, please choose another');
         }
     }
+
+    if(isset($_GET['e'])){
+        $e = $_GET['e'];
+        
+    // SELECT USERNAME FROM THE DATABASE
+    $sth = $pdo->query("SELECT email FROM user WHERE email='$e';");
+    
+    $row = $sth->fetch(PDO::FETCH_ASSOC);
+        if($row){
+            echo('This email is already registered, please log-in');
+        }
+    }

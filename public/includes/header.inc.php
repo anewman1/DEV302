@@ -163,7 +163,7 @@
                             <?php
                             }
                             ?>
-                            <li class="blk"><a href="#usersettings" style="color:#333!important;"><span class="glyphicon glyphicon-envelope"></span> Settings</a></li>
+                            <li class="blk"><a href="#usersettings" style="color:#333!important;"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
                             <li class="divider"></li>
                             <li class="blk"><a href="processes/logout.prc.php" style="color:#333!important;"><span class="glyphicon glyphicon-off"></span> Log-Out</a></li>
                         </ul>
