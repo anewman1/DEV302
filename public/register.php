@@ -72,6 +72,8 @@ require 'includes/header.inc.php';
         }else{
             return false;
         }
+        //return eCheck;
+        //return uCheck;
     }
     
     function checkUser(str){
@@ -113,7 +115,7 @@ require 'includes/header.inc.php';
 </script>
 
 <form method="POST" action="processes/signup.prc.php" name="signup" onsubmit="return validateForm()">
-    Title: <select name="title">
+    Title: <select>
         <option value="Mr">Mr</option>
         <option value="Ms">Ms</option>
         <option value="Miss">Miss</option>
