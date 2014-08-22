@@ -1,9 +1,20 @@
 <?php
 
-// START SESSION and set VARIABLES
+    // START SESSION and set VARIABLES
     session_start();
     $loggedIn = (isset($_SESSION['login'])!= "")? $_SESSION['login'] : null;
     $USER = (isset($_SESSION['user'])!= "")? $_SESSION['user'] : null;
+    $access = (isset($_SESSION['access'])!="")? $_SESSION['access'] : null;
+    
+    
+    // Prevents access to ADMIN TOOLS if not logged in as admin.
+    $location = $_SERVER['SCRIPT_NAME'];
+    $url = explode('/', $location);
+    $num = count($url);
+    $adminTool = $url[$num-1];
+    if($access !== 'admin' && $adminTool == 'adminTools.php'){
+        header("Location: index.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +25,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>The DVD Store</title>
+    <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/jquery.bxslider.css" rel="stylesheet">
@@ -140,14 +152,23 @@
                     // DISPLAYS USERNAME GREETING IF LOGGED IN
                     }elseif($loggedIn == true){ 
                 ?>
-                <li class="dropdown"><a href="logout.php" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?=$USER?> <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/user/preferences"><i class="icon-cog"></i> Preferences</a></li>
-                            <li><a href="/help/support"><i class="icon-envelope"></i> Contact Support</a></li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown"><?=$USER?> <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <?php
+                            if($access == 'admin'){
+                            ?>
+                            <li><a href="adminTools.php" style="color:#333!important;"><span class="glyphicon glyphicon-cog"></span> Admin Toolbox</a></li>
+                            <?php
+                            }
+                            ?>
+                            <li class="blk"><a href="#usersettings" style="color:#333!important;"><span class="glyphicon glyphicon-envelope"></span> Settings</a></li>
                             <li class="divider"></li>
-                            <li><a href="/auth/logout"><i class="icon-off"></i> Logout</a></li>
+                            <li class="blk"><a href="processes/logout.prc.php" style="color:#333!important;"><span class="glyphicon glyphicon-off"></span> Log-Out</a></li>
                         </ul>
                     </li>
+                </ul>
                 <?php
                     }
                 ?>

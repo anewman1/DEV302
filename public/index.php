@@ -8,7 +8,7 @@
                     <ul class="bxslider">
                         <li>
                             <a href="index.html">
-                                <img src="" alt=""/>
+                                <img src="images/banner_slider-1.jpg" alt=""/>
                             </a>
                         </li>
                         <li>
@@ -18,7 +18,7 @@
                         </li>
                         <li>
                             <a href="index.html">
-                                <img src="" alt=""/>
+                                <img src="images/banner_slider-3.jpg" alt=""/>
                             </a>
                         </li>
                     </ul>
