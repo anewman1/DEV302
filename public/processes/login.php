@@ -18,19 +18,20 @@
     }
         
     // SELECT USERNAME AND EMAIL FROM THE DATABASE
-    $sth = $pdo->query("SELECT uname, pword, access, lastVisit FROM user WHERE uname='$user';");
+    $sth = $pdo->query("SELECT uname, pword, access, lastVisit, active FROM user WHERE uname='$user';");
     
     $row = $sth->fetch(PDO::FETCH_ASSOC);
     $un = $row['uname'];
     $up = $row['pword'];
     $lv = $row['lastVisit'];
     $access = $row['access'];
+    $active = $row['active'];
     
     $encrypt = $pass.$salt.$lv;
     $hashed = hash('sha512', $encrypt);
     
     // SET SESSION TO LOGGED IN IF USER EXISTS AND PASSWORD IS CORRECT
-    if(($un == $user) && ($up == $hashed)){
+    if(($un == $user) && ($up == $hashed) && $active == "true"){
         $_SESSION['login'] = true;
         $_SESSION['user'] = $user;
         $_SESSION['access'] = $access;

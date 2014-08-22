@@ -2,6 +2,7 @@
 
     // START SESSION and set VARIABLES
     session_start();
+    $title = (isset($_POST['title'])!= "")? $_POST['title'] : null;
     $fname = (isset($_POST['fname'])!= "")? $_POST['fname'] : null;
     $lname = (isset($_POST['lname'])!= "")? $_POST['lname'] : null;
     $phone = (isset($_POST['phone'])!= "")? $_POST['phone'] : null;
@@ -53,7 +54,7 @@
         
     // IF USER AND EMAIL ARE OK, THEN CREATE NEW USER IN THE DATABASE
     }else{
-        $query = "INSERT INTO user SET id='NULL', uname='$user', email='$email', fname='$fname', lname='$lname', pword='$hashed', dob='$dob', phone='$phone', date=CURRENT_TIMESTAMP, access='user', lastVisit='0000-00-00 00:00:00';";
+        $query = "INSERT INTO user SET id='NULL', title='$title', uname='$user', email='$email', fname='$fname', lname='$lname', pword='$hashed', dob='$dob', phone='$phone', date=CURRENT_TIMESTAMP, access='user', lastVisit='0000-00-00 00:00:00', active='true';";
         $pdo->query($query); 
         redirect('../index.php');
     } 

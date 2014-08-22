@@ -6,11 +6,13 @@ require 'includes/header.inc.php';
     function validateForm(){
         var form = document.forms['signup'];
         
+        
+        var title = form['title'].value;
         var fname = form['fname'].value;
         var lname = form['lname'].value;
         var phone = form['phone'].value;
 //        var dob = form['dob'].value;
-//        var email = form['email'].value;
+        var email = form['email'].value;
         var user = form['user'].value;
         var pass = form['pass'].value;
         var conf = form['confirm'].value;
@@ -62,29 +64,64 @@ require 'includes/header.inc.php';
             return false;
         }
         
-        checkUser(user);
+        var uCheck = checkUser(user);
+        var eCheck = checkEmail(email);
         
+        if(uCheck === true && eCheck === true){
+            return true;
+        }else{
+            return false;
+        }
+        //return eCheck;
+        //return uCheck;
     }
     
     function checkUser(str){
-        if(window.XMLHttpRequest){
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        }else{
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function(){
-            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-                document.getElementById('taken').innerHTML = xmlhttp.responseText;
+        var returned = true;
+        $.ajax({
+            async: false,
+            url: "processes/findUser.prc.php",
+            data: 'u='+str,
+            success: function(text){
+                $('#utaken').text(text);
+                if(text !== ''){
+                    returned = false;
+                }else{
+                    returned = true;
+                }
             }
-        };
-        xmlhttp.open("GET", "processes/findUser.prc.php?u="+str, false);
-        xmlhttp.send();
+        });
+        return returned;  
     }
+    
+    function checkEmail(str){
+        var returned = true;
+        $.ajax({
+            async: false,
+            url: "processes/findUser.prc.php",
+            data: 'e='+str,
+            success: function(text){
+                $('#etaken').text(text);
+                if(text !== ''){
+                    returned = false;
+                }else{
+                    returned = true;
+                }
+            }
+        });
+        return returned;  
+    }
+
 </script>
 
 <form method="POST" action="processes/signup.prc.php" name="signup" onsubmit="return validateForm()">
+    Title: <select>
+        <option value="Mr">Mr</option>
+        <option value="Ms">Ms</option>
+        <option value="Miss">Miss</option>
+        <option value="Mrs">Mrs</option>
+        <option value="Dr">Dr</option>
+    </select><br>
     First Name: <input type="text" name="fname" required /><br>
     Last Name: <input type="text" name="lname" required /><br>
     Phone Number: <input type="tel" name="phone" required /><br>
@@ -131,9 +168,9 @@ require 'includes/header.inc.php';
     
     
     
-    Email Address: <input type="email" name="email" required /><br>
+    Email Address: <input type="email" name="email" required /><span id="etaken"></span><br>
     <span style="font-size: 0.8em">Username must only contain letters and numbers.</span><br>
-    Username: <input type="text" name="user" required /><span id="taken"></span><br>
+    Username: <input type="text" name="user" required /><span id="utaken"></span><br>
     <span style="font-size: 0.8em">Password must contain a minimum of six(6) characters, an uppercase, lowercase and a number.</span><br>
     Password: <input type="password" name="pass" required /><br>
     Confirm Password: <input type="password" name="confirm" required /><br>
