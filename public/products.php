@@ -73,11 +73,11 @@
 ?>
             <div class="col-lg-4 col-sm-4 hero-feature text-center">
 	                <div class="thumbnail">
-	                	<a style="overflow: hidden; position: relative;" href="products/<?= $row['id'] . "-" . $alias ?>" class="link-p">
+	                	<a style="overflow: hidden; position: relative;" href="sheld_product.php?alias=<?= $row['id'] . "-" . $alias ?>" class="link-p">
 	                    	<img style="position: absolute; width: auto; height: auto; max-width: none; max-height: none; left: 0px; top: 83px;" src="<?= $row['image'] ?>" alt="">
 	                	</a>
 	                    <div class="caption prod-caption">
-	                        <h4><a href="products/<?= $row['id'] . "-" . $alias ?>"><?= $row['name'] ?></a></h4>
+	                        <h4><a href="sheld_product.php?alias=<?= $row['id'] . "-" . $alias ?>"><?= $row['name'] ?></a></h4>
 	                        <p>Rated: <?= $row['rating'] ?></p>
 	                        <p>
 	                        	</p><div class="btn-group">

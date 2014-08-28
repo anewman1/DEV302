@@ -87,33 +87,22 @@ while ($img = $imgsth->fetch(PDO::FETCH_ASSOC)) {
 function echoRating() {
     global $rating;
     // Display relevant number of stars
+    
+    /* Switch simplfied by Aaron. */
     switch ($rating['stars']) {
+        case 5:
+            echo("<span class=\"glyphicon glyphicon-star\"></span>");
+        case 4:
+            echo("<span class=\"glyphicon glyphicon-star\"></span>");
+        case 3:
+            echo("<span class=\"glyphicon glyphicon-star\"></span>");
+        case 2:
+            echo("<span class=\"glyphicon glyphicon-star\"></span>");
         case 1:
             echo("<span class=\"glyphicon glyphicon-star\"></span>");
             break;
-        case 2:
-            echo("<span class=\"glyphicon glyphicon-star\"></span>");
-            echo("<span class=\"glyphicon glyphicon-star\"></span>");
-            break;
-        case 3:
-            echo("<span class=\"glyphicon glyphicon-star\"></span>");
-            echo("<span class=\"glyphicon glyphicon-star\"></span>");
-            echo("<span class=\"glyphicon glyphicon-star\"></span>");
-            break;
-        case 4:
-            echo("<span class=\"glyphicon glyphicon-star\"></span>");
-            echo("<span class=\"glyphicon glyphicon-star\"></span>");
-            echo("<span class=\"glyphicon glyphicon-star\"></span>");
-            echo("<span class=\"glyphicon glyphicon-star\"></span>");
-            break;
-        case 5:
-            echo("<span class=\"glyphicon glyphicon-star\"></span>");
-            echo("<span class=\"glyphicon glyphicon-star\"></span>");
-            echo("<span class=\"glyphicon glyphicon-star\"></span>");
-            echo("<span class=\"glyphicon glyphicon-star\"></span>");
-            echo("<span class=\"glyphicon glyphicon-star\"></span>");
-            break;
     }
+    
 }
 
 $ratingsth = $pdo->query($ratingQuery);

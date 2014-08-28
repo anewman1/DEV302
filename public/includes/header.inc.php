@@ -44,7 +44,7 @@
     $cartQty = array_sum($cartQty);
    
     // WHAT IS ALIAS BEEN USED FOR?
-    /*
+
     // Check if 'alias' is set in the session
     if (isset($_SESSION['alias'])) {
         // Check if a different alias is available in the URL
@@ -69,7 +69,7 @@
     // Replace hyphens with spaces
     $alias = $_SESSION['alias'][1];
     $alias = preg_replace('/\-/', ' ', $alias);
-    */
+    
 
 
     date_default_timezone_set('Australia/Brisbane');
