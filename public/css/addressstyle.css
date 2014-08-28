@@ -1,0 +1,62 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21/08/2014, 2:23:52 PM
+    Author     : shereelouise
+*/
+
+
+
+.address-form {
+    width: 80%;
+    height: 60%;
+  
+}
+
+.address {
+    width: 300px;
+    height:40px;
+}
+
+.similarAddress {
+    width: 300px;
+    height:100px;
+}
+
+.unitType {
+    
+}
+
+.unitNum {
+    
+}
+
+.streetName {
+    width: 250px;
+    height:30px;
+}
+
+.streetType {
+        
+}
+
+.streetSuffix {
+    
+}
+
+.suburb {
+    width: 250px;
+    height:30px;    
+}
+
+.state {
+    
+}
+
+.postcode {
+    
+}
+
