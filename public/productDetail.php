@@ -124,10 +124,127 @@ $product_description = $product['description'];
         <hr/>
         <h3>$<?= $product_price ?></h3>
         <div class="input-qty-detail">
-            <input type="text" class="form-control input-qty text-center" value="1">
-            <button class="btn btn-primary pull-left">add to cart</button>
+            <input type="text" class="form-control input-qty text-center" value="1" style="width:90px !important;float:left!important;">
+            <button class="btn btn-primary pull-left" style="float:left!important;">add to cart</button>
         </div>
         <br/>
+        <hr/>
+        <div id="reviews">
+            <h1>Ratings</h1>
+            <?php
+
+            function echoRating() {
+                global $rating;
+                // Display relevant number of stars
+
+                /* Switch simplfied by Aaron. */
+                switch ($rating['stars']) {
+                    case 5:
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                    case 4:
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                    case 3:
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                    case 2:
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                    case 1:
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        break;
+                }
+            }
+
+            $ratingsth = $pdo->query($ratingQuery);
+            $ratings = [];
+            while ($rating = $ratingsth->fetch(PDO::FETCH_ASSOC)) {
+                $ratings[] = $rating['stars'];
+                ?>
+                <div class="review">
+                    <h3><?php echoRating(); ?></h3>
+                    <p><i>Rated by: <?= $rating['uname'] ?></i></p>
+                </div>
+                <?php
+            }
+            if ($ratings != null) {
+                $average = array_sum($ratings) / count($ratings);
+                
+                switch($average){
+                    case($average<1): 
+                        echo("<span class=\"glyphicon glyphicon-star-empty\"></span>");
+                        break;
+                    
+                    case($average===1): 
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        break;
+                    
+                    case($average>1 && $average <2): 
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star-empty\"></span>");
+                        break;
+                    
+                    case($average===2): 
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        break;
+                    
+                    case($average>2 && $average<3): 
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star-empty\"></span>");
+                        break;
+                    case($average===3):  
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        break;
+                    case($average>1 && $average<4):   
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star-empty\"></span>");
+                        break;
+                    case($average===4):    
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        break;
+                    case($average>1 && $average<5):   
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star-empty\"></span>");
+                        break;
+                    case($average===5):   
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        echo("<span class=\"glyphicon glyphicon-star\"></span>");
+                        break;
+                }
+                echo("Average rating of $average Stars");
+            }
+            if ($loggedIn) {
+                ?>
+                <form name="review-post" method="post" action="processes/rating.php">
+                    <label for="rating" title="Rating">Rate this product: </label>
+                    <select name="rating" required title="rating">
+                        <option value="5">5 Stars</option>
+                        <option value="4">4 Stars</option>
+                        <option value="3">3 Stars</option>
+                        <option value="2">2 Stars</option>
+                        <option value="1">1 Star</option>
+                    </select>
+                    <br/>
+                    <button type="submit" class="btn btn-lg btn-success">Post Rating</button>
+                </form>
+                <?php
+            }else{
+                echo("<br><br><p>Please log in to rate or review this item.</p>");
+            }
+            ?>
+        </div>
         <hr/>
         <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
             <a class="addthis_button_preferred_1"></a>
