@@ -1,5 +1,5 @@
 <?php
-    require '../theme/includes/header.inc.php';
+    require 'includes/header.inc.php';
 ?>
 <!-- OPTIONAL ADDITIONAL SECTION IF TIME -->
 <!-- Recent Product -->
@@ -49,5 +49,5 @@
         	<!-- End About -->
 
 <?php
-    require '../theme/includes/footer.inc.php';
+    require 'includes/footer.inc.php';
 ?>
