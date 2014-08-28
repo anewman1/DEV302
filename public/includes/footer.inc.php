@@ -41,10 +41,10 @@
         		<div class="column">
         			<h4>Follow Us</h4>
         			<ul class="social">
-        				<li><a href="#">Google Plus</a></li>
-        				<li><a href="#">Facebook</a></li>
-        				<li><a href="#">Twitter</a></li>
-        				<li><a href="#">RSS Feed</a></li>
+        				<li><a href="https://plus.google.com/">Google Plus</a></li>
+        				<li><a href="https://www.facebook.com/">Facebook</a></li>
+        				<li><a href="https://twitter.com/">Twitter</a></li>
+        				<li><a href="rssfeed.php">RSS Feed</a></li>
         			</ul>
         		</div>
         	</div>
