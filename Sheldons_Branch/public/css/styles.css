@@ -98,15 +98,10 @@ footer {
     margin: 0;
     margin-left: 2%;
     margin-top: 2%;
-    margin-bottom: 2%;
-    max-height: 20px;
-    -o-text-overflow: ellipsis;
-    /* Opera */
-    text-overflow: ellipsis;
-    /* IE, Safari (WebKit) */
-    overflow: hidden;
-    /* don't show excess chars */
-    white-space: nowrap; }
+    margin-bottom: 2%;}
+	.products .price {
+		color: red;
+	}
   .products button {
     width: 100%;
     -webkit-border-radius: 0;
@@ -142,6 +137,18 @@ footer {
       color: red;
       margin-top: 5%;
       margin-bottom: 0; }
+	#product-container #product-info p {
+		line-height: 25px;
+		font-size: 15px;
+		margin-bottom: 0;
+	}
+	#product-container #product-info .small {
+		max-height: 200px;
+		overflow: hidden;
+	}
+	#product-container #product-info .large {
+		max-height: none;
+	}
     #product-container #product-info form {
       width: 100%;
       margin-right: 0; }

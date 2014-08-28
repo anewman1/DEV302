@@ -1,0 +1,438 @@
+/* Scss Document */
+
+$font: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$primaryColour: #CCC;
+$secondaryColour: #808080;
+$links: #00FFFB;
+$corners: 20px;
+
+@import 'reset';
+
+@mixin centerAlign() {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@mixin roundCorners($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin cornersReset() {
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+      -ms-border-radius: 0;
+          border-radius: 0;
+}
+
+@mixin border() {
+	border-width: 1px;
+	border-color: #CCCCCC;
+	border-style: solid;
+}
+
+@mixin shadow() {
+	-moz-webkit-box-shadow: 0px 0px 7px 0px rgba(60,60,60,0.50);
+	-webkit-box-shadow: 0px 0px 7px 0px rgba(60,60,60,0.50);
+	box-shadow: 0px 0px 7px 0px rgba(60,60,60,0.50);
+}
+
+
+.badge {
+	background-color: red;
+}
+
+#content {
+	margin: 4%;
+	background-color: #fff;
+	@include roundCorners($corners);
+	@include centerAlign();
+	@include shadow();
+	
+	h1 {
+		margin: 2%;
+		margin-bottom: 0;
+		margin-right: 0;
+		margin-top: 4%;
+	}
+	
+	#sort {
+		padding: 2%;
+		width: 100%;
+		background-color: #EEEEEE;
+		@include roundCorners($corners);
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		
+		form {
+			width: 50%;
+		}
+	}
+}
+
+footer {
+	text-align: center;
+}
+
+
+/* Products Page */
+
+.products {
+	width: 96%;
+	margin: 2%;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding-bottom: 4%;
+	
+
+	a {
+		border: none;
+		float: left;
+		margin-top: 2%;
+		margin-bottom: 0;
+		margin-left: 2%;
+		width: 23.5%;
+		padding: 2%;
+		padding-bottom: 0;
+		text-align: center;
+		
+	}
+	
+	a:hover .btn-success, .btn-success:focus {
+		background-color: #419641;
+		background-position: 0px -15px;
+	}
+	
+	a:first-child {
+		margin-left: 0;
+	}
+	
+	a:nth-child(4n+1) {
+		margin-left: 0;
+	}
+		
+	
+	.product {
+		/*float: left;
+		margin-top: 2%;
+		margin-bottom: 2%;
+		margin-left: 2%;
+		width: 23.5%;
+		padding: 2%;
+		@include border();*/
+	}
+	
+	
+	
+	.img-holder {
+		height: 200px;
+		overflow: hidden;
+	
+		img {
+			width: 100%;
+		}
+	}
+	
+	h3 {
+		margin: 0;
+		margin-left: 2%;
+		margin-bottom: 2%;
+		font-size: 15px;
+		height: 30px;
+	}
+	
+	p {
+		margin: 0;
+		margin-left: 2%;
+		margin-top: 2%;
+		margin-bottom: 2%;
+		max-height: 20px;
+		-o-text-overflow: ellipsis;   /* Opera */
+		text-overflow:    ellipsis;   /* IE, Safari (WebKit) */
+		overflow: hidden;              /* don't show excess chars */
+		white-space: nowrap;
+	}
+	
+	button {
+		width: 100%;
+		@include cornersReset();
+	}
+}
+
+.products:last-child {
+	margin-bottom: 2%;
+}
+
+/* Product Page */
+
+#product-container {
+	width: 96%;
+	margin: 2%;
+	
+	#product-pic {
+		float: left;
+		margin: 0;
+		width: 50%;
+		padding-right: 2%;
+		
+		img {
+			width: 100%;
+			margin-right: 2%;
+		}
+	}
+	
+	#product-info {
+		float: right;
+		margin: 0;
+		width: 50%;
+		padding-left: 2%;
+		text-align: right;
+		border-left-width: 1px;
+		border-left-color: #CCCCCC;
+		border-left-style: dashed;
+		
+		h2 {
+			color: red;
+			margin-top: 5%;
+			margin-bottom: 0;
+		}
+		
+		form {
+			width: 100%;
+			margin-right: 0;
+			
+			input, select, textarea, button {
+				width: 50%;
+			}
+			
+			label {
+				margin-right: 2%;
+			}
+		}
+		
+		#reviews {
+			margin: 2%;
+			margin-left: 4%;
+			width: 96%;
+			border-top-width: 1px;
+			border-top-color: #CCCCCC;
+			border-top-style: dashed;
+			text-align: left;
+			
+			h1 {
+				margin-left: 0;
+			}
+			
+			form {
+				width: 100%;
+				
+				input, textarea, button, select {
+					width: 100%;
+				}
+			}
+			
+			.review {
+				margin-top: 2%;
+				width: 100%;
+				border-bottom-width: 1px;
+				border-bottom-color: #CCCCCC;
+				border-bottom-style: dashed;
+				
+				span {
+					color: #2092F9;
+				}
+				
+				h3 {
+					margin-bottom: 0;
+				}
+				
+				i {
+					font-size: 8pt; 
+					color: #808080;
+				}
+			}
+		}
+	}
+	
+	form {
+		margin-top: 5%;
+	}
+}
+
+form {
+	width: 100%;
+	
+	input, select, textarea {
+		width: 100%;
+		border: 1px solid #CCCCCC;
+		padding: 1%;
+		margin-left: 0;
+		margin-bottom: 2%;
+		font-size: 15px;
+	}
+	
+	input:focus, select:focus, textarea:focus {
+		border: 1px solid #FF0004;
+	}
+	
+	textarea {
+		height: 150px;
+		resize: none;
+	}
+	
+	.required {
+		font-weight: bold;
+		color: $primaryColour;
+	}
+	
+	.submit {
+		background-color: #005E0D;   
+		color: #FFF;  
+		border: none;  
+		display: block;
+		margin-bottom: 2%;
+		padding-left: 0;
+	}
+		
+	.submit:hover {
+		cursor: pointer;
+		background-color: green;
+	}
+} 
+
+/* Normalize placeholder styles */  
+  
+/* chrome, safari */  
+::-webkit-input-placeholder {  
+	color:#CCC;  
+	font-style:italic;  
+}  
+  
+/* mozilla */  
+input:-moz-placeholder, textarea:-moz-placeholder {  
+	color:#CCC;  
+	font-style:italic;  
+}  
+  
+/* ie (faux placeholder) */  
+input.placeholder-text, textarea.placeholder-text  {  
+	color:#CCC;  
+	font-style:italic;  
+}
+
+
+
+@media only screen and (max-width: 1280px) {
+	
+	#wrapper {
+		width: 90%;
+	}
+	
+	.products a:nth-child(n+1) {
+		margin-left: 2%;
+		width: 49%;	
+	}
+	
+	.products a:nth-child(2n+1) {
+		margin-left: 0;
+	}
+	
+	.row .table .name {
+		width: 40%;
+	}
+	
+	footer p {
+		margin-top: 1.2%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	
+	#global {
+		background: none;
+	}
+	
+	.container {
+		width: 95%;
+	}
+	
+	#wrapper {
+		width: 100%;
+	}
+	
+	#content {
+		@include cornersReset();
+		margin: 0;
+	}
+	
+	.breadcrumb {
+		@include cornersReset();
+	}
+	
+	.products a:nth-child(n+1) {
+		margin: 0;
+		width: 100%;
+		margin-bottom: 2%;
+	}
+	
+	#product-container {
+		#product-pic {
+			float: none;
+			margin: 0;
+			margin-bottom: 2%;
+			width: 100%;
+			padding: 0;
+			
+			img {
+				width: 100%;
+				margin: 0;
+			}
+			
+		}
+		
+		#product-info {
+			float: none;
+			margin: 0;
+			width: 100%;
+			padding-left: 0;
+			text-align: right;
+			border-top-width: 1px;
+			border-top-color: #CCCCCC;
+			border-top-style: dashed;
+			border-left: none;
+		
+			.row .table .name {
+				width: 100%;
+			}
+			form {
+				margin-right: 0;
+				
+				input, select, textarea, button {
+					width: 100%;
+				}
+				
+				label {
+					margin-right: 0;
+				}
+			}
+			#reviews {
+				margin: 0;
+				margin-top: 2%;
+				width: 100%;
+			}
+		}
+	}
+}
+
+
+.clearfix:before,
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	overflow: hidden;
+}
+.clearfix:after {clear: both;}
+.clearfix {zoom: 1;} /* IE < 8 */
