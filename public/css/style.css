@@ -301,3 +301,19 @@ footer .copyright{
 	margin-right: 5px;
 	width: 130px;
 }
+
+ul ul, ol ul {
+list-style-type: none;
+-webkit-padding-start: 0px;
+}
+
+footer .column ul a {
+color: #a09f9f;
+}
+
+footer .column ul a:hover{
+color: #6f6f6f;
+text-decoration: none;
+}
+
+

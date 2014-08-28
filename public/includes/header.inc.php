@@ -48,7 +48,7 @@
 	            <!-- End Logo -->
 
 				<!-- Search Form -->
-	            <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12">
+	            <div class="col-lg-5 col-md-5 hidden-sm hidden-xs">
 	            	<div class="well">
 	                    <form action="">
 	                        <div class="input-group">
@@ -65,7 +65,7 @@
 	            <!-- End Search Form -->
 
 	            <!-- Shopping Cart List -->
-	            <div class="col-lg-3 col-md-4 col-sm-5">
+	            <div class="col-lg-3 col-md-4 hidden-sm hidden-xs">
 	                <div class="well">
 	                    <div class="btn-group btn-group-cart">
 	                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -108,7 +108,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- text logo on mobile view -->
-                <a class="navbar-brand visible-xs" href="index.html">Th</a>
+                <a class="navbar-brand visible-xs" href="index.php">The DVD Store</a>
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">

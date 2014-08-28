@@ -24,17 +24,17 @@
 		                </div>
 				</div>
 				<!-- End RECENT PRODUCT -->
-        	</div>
-        	<div class="clearfix visible-sm"></div>
+        	<!-- </div>
+        	<div class="clearfix visible-sm"></div> -->
 
-			<!-- Cart -->
+			<!-- About -->
         	<div class="col-lg-9 col-md-9 col-sm-12">
         		<div class="col-lg-12 col-sm-12">
             		<span class="title">ABOUT US</span>
             	</div>
 	            <div class="col-lg-12 col-sm-12 hero-feature">
 	            	<h4>The DVD Store</h4>
-					<p>The DVD store, founded in Brisbane, Australia in 1999 by James Macaulay, has now become Australia's largest online specialist DVD retailer. In January 2014, The DVD Store went under a rebranding after it was purchased by the Fighting Mongooses Group after the company entered voluntary receivership. The DVD Store specialises in: </p>
+					<p>The DVD store, founded in Brisbane, Australia in 2014 by James Macaulay, has now become Australia's largest online specialist DVD retailer. In January 2014, The DVD Store went under a rebranding after it was purchased by the Fighting Mongooses Group after the company entered voluntary receivership. The DVD Store specialises in: </p>
 					<ul>
 						<li>New Release Movies, TV Series and Games</li>
 						<li></li>
@@ -46,7 +46,7 @@
 					<p>Dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	            </div>
         	</div>
-        	<!-- End Cart -->
+        	<!-- End About -->
 
 <?php
     require '../theme/includes/footer.inc.php';
