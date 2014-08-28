@@ -15,6 +15,68 @@
     if($access !== 'admin' && $adminTool == 'adminTools.php'){
         header("Location: index.php");
     }
+    
+    //Sheldons Section
+    
+    if (!isset($_SESSION['cart']) || (empty($_SESSION['cart']))) {
+
+    $_SESSION['cart'][] = array(
+        "name" => "Black Bong Tee",
+        "img" => "img/store/fullmetal_alch.png",
+        "qty" => 2,
+        "price" => 40
+    );
+    $_SESSION['cart'][] = array(
+        "name" => "White Bong Tee",
+        "img" => "img/store/fullmetal_alch.png",
+        "qty" => 1,
+        "price" => 40
+    );
+}
+
+    $i = 0;
+    $count = count($_SESSION['cart']);
+
+    for ($i = 0; $i < $count; $i++) {
+        $cartQty[] = $_SESSION['cart'][$i]['qty'];
+    }
+
+    $cartQty = array_sum($cartQty);
+   
+    // WHAT IS ALIAS BEEN USED FOR?
+    /*
+    // Check if 'alias' is set in the session
+    if (isset($_SESSION['alias'])) {
+        // Check if a different alias is available in the URL
+        if (isset($_GET['alias']) && ($_GET['alias'] !== $_SESSION['alias']) && ($_GET['alias'] != '')) {
+            $alias = explode('-', $_GET['alias'], 2);
+
+            // Update the Session variable
+            $_SESSION['alias'] = $alias;
+        }
+    } else {
+        // If it isn't, check that a value is available in the URL
+        if (isset($_GET['alias']) && ($_GET['alias'] != '')) {
+            $alias = explode('-', $_GET['alias'], 2);
+
+            // If there is, set the Session variable to match
+            $_SESSION['alias'] = $alias;
+        }
+    }
+
+    $id = $_SESSION['alias'][0];
+    // Get the value of alias
+    // Replace hyphens with spaces
+    $alias = $_SESSION['alias'][1];
+    $alias = preg_replace('/\-/', ' ', $alias);
+    */
+
+
+    date_default_timezone_set('Australia/Brisbane');
+    $date = date("Y-m-d H:i:s");
+    
+    
+    
 ?>
 
 <!DOCTYPE html>
